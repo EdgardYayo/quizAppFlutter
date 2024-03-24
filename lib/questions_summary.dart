@@ -14,6 +14,7 @@ class QuestionsSummary extends StatelessWidget {
         child: Column(
           children: summaryData.map((data) {
             return Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
                   backgroundColor: data['user_answer'] == data['correct_answer'] ? Colors.green : Colors.red,
@@ -28,32 +29,36 @@ class QuestionsSummary extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        data['question'] as String,
-                        style: GoogleFonts.nunito(
-                          fontSize: 17,
-                          color: Colors.black
+                  child: Container(
+                    margin: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          data['question'] as String,
+                          style: GoogleFonts.nunito(
+                            fontSize: 17,
+                            color: Colors.black
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        data['user_answer'] as String,
-                        style: GoogleFonts.nunito(
-                          fontSize: 15,
-                          color: data['user_answer'] == data['correct_answer'] ? Colors.blue : Colors.red,
+                        const SizedBox(height: 5),
+                        Text(
+                          data['user_answer'] as String,
+                          style: GoogleFonts.nunito(
+                            fontSize: 15,
+                            color: data['user_answer'] == data['correct_answer'] ? Colors.blue : Colors.red,
+                          ),
                         ),
-                      ),
-                      Text(
-                        data['correct_answer'] as String,
-                        style: GoogleFonts.nunito(
-                          fontSize: 15,
-                          color: Colors.lightGreen
-                        ),
-                      )
-                    ],
+                        Text(
+                          data['correct_answer'] as String,
+                          style: GoogleFonts.nunito(
+                            fontSize: 15,
+                            color: Colors.lightGreen
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
